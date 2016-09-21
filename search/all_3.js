@@ -15,6 +15,7 @@ var searchData=
   ['lili_5fpush_5fat',['lili_push_at',['../group__lili__list.html#ga8bb26256745d02324e42ed54441baa6d',1,'lili_push_at(lili_t *list, void *data, int index):&#160;lili.c'],['../group__lili__list.html#ga8bb26256745d02324e42ed54441baa6d',1,'lili_push_at(lili_t *list, void *data, int index):&#160;lili.c']]],
   ['lili_5fpush_5ffront',['lili_push_front',['../group__lili__list.html#ga55cd872b249e257d35b7f77691d237de',1,'lili_push_front(lili_t *list, void *data):&#160;lili.c'],['../group__lili__list.html#ga55cd872b249e257d35b7f77691d237de',1,'lili_push_front(lili_t *list, void *data):&#160;lili.c']]],
   ['lili_5ft',['lili_t',['../structlili__t.html',1,'lili_t'],['../lili_8h.html#acc814be75bc5cf3e92f7c775389dda3c',1,'lili_t():&#160;lili.h']]],
+  ['lili_5fversion',['LILI_VERSION',['../lili_8h.html#a94baf900372d306047aa60c87f6f0aed',1,'lili.h']]],
   ['list_5falloc',['LIST_ALLOC',['../lili_8c.html#aebeabeb899b5e0cf88f80338f37e194a',1,'lili.c']]],
   ['list_5ffree',['LIST_FREE',['../lili_8c.html#a8968cfdd1e3404352d2c43dcb3bde04a',1,'lili.c']]],
   ['list_5finit',['LIST_INIT',['../lili_8c.html#a74b9f28d71ffcd1b676161efeb328eb4',1,'lili.c']]]
