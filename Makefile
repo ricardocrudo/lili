@@ -5,7 +5,7 @@ LIB_NAME = lili
 
 # source directory and output name
 SRC_DIR = src
-OUTPUT = lib$(LIB_NAME).so
+OUTPUT = lib$(LIB_NAME)
 
 # flags for debugging
 ifeq ($(DEBUG), 1)
@@ -31,13 +31,14 @@ LIB_VERSION = $(shell grep -oP "define.*VERSION[ \t]*\K[0-9.\"]*" $(SRC_DIR)/$(L
 .PHONY: doc
 
 $(OUTPUT): $(OBJ)
-	$(CC) $(OBJ) $(LDFLAGS) $(LIBS) -o $@
+	$(CC) $(OBJ) $(LDFLAGS) $(LIBS) -o $@.so
+	$(AR) cqs $@.a $^
 
 %.o: %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
-	rm -f $(OBJ) $(OUTPUT)
+	rm -f $(OBJ) $(OUTPUT).*
 
 doc:
 	@( cat Doxyfile ; echo "PROJECT_NUMBER=$(LIB_VERSION)" ) | doxygen -
