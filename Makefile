@@ -15,7 +15,7 @@ CFLAGS += -O3
 endif
 
 # flags
-CFLAGS += $(CONFIG) -Wall -Wextra -fPIC -std=gnu99
+CFLAGS += $(CONFIG) -Wall -Wextra -fPIC
 LDFLAGS += -shared
 
 # libraries
@@ -30,15 +30,19 @@ LIB_VERSION = $(shell grep -oP "define.*VERSION[ \t]*\K[0-9.\"]*" $(SRC_DIR)/$(L
 
 .PHONY: doc
 
-$(OUTPUT): $(OBJ)
-	$(CC) $(OBJ) $(LDFLAGS) $(LIBS) -o $@.so
-	$(AR) cqs $@.a $^
+all: $(OUTPUT).so $(OUTPUT).a
+
+$(OUTPUT).so: $(OBJ)
+	$(CC) $(OBJ) $(LDFLAGS) $(LIBS) -o $@
+
+$(OUTPUT).a: $(OBJ)
+	$(AR) cqs $@ $^
 
 %.o: %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
-	rm -f $(OBJ) $(OUTPUT).*
+	rm -f $(OBJ) $(basename $(OUTPUT)).*
 
 doc:
 	@( cat Doxyfile ; echo "PROJECT_NUMBER=$(LIB_VERSION)" ) | doxygen -
